@@ -181,7 +181,7 @@ Experienced in frontend-heavy products using Next.js, TypeScript, and animation-
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Muhammad-Ahmed-Developerr/Arm-Strong-Website
+   git clone https://github.com/Muhammad-Ahmed-Developerr/Arm-Strong-Website.git
    cd Arm-Strong-Website
 
 ## ⭐ Final Note
