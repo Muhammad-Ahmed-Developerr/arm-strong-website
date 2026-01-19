@@ -171,7 +171,10 @@ Pure UI/UX + animation showcase.
 
 **Muhammad Ahmed**  
 Full Stack Web Developer  
-Specialized in modern frontend, animations, and scalable UI systems.
+
+I build high-performance web applications with a strong focus on modern UI/UX, smooth animations, and scalable architectures.  
+Experienced in frontend-heavy products using Next.js, TypeScript, and animation-driven interfaces, while also capable of handling full-stack solutions when required.
+
 
 ---
 
