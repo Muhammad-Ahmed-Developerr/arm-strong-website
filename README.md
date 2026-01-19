@@ -175,8 +175,14 @@ Full Stack Web Developer
 I build high-performance web applications with a strong focus on modern UI/UX, smooth animations, and scalable architectures.  
 Experienced in frontend-heavy products using Next.js, TypeScript, and animation-driven interfaces, while also capable of handling full-stack solutions when required.
 
-
 ---
+
+### Setup Instructions
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Muhammad-Ahmed-Developerr/Arm-Strong-Website
+   cd Arm-Strong-Website
 
 ## ⭐ Final Note
 
