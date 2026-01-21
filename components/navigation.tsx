@@ -45,28 +45,28 @@ export function Navigation() {
             : "bg-transparent"
         }`}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16 md:h-20 gap-4">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="flex items-center justify-between h-14 sm:h-16 md:h-20 gap-2 sm:gap-4">
 
             {/* LOGO */}
-            <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-              <div className="relative w-9 h-9 md:w-11 md:h-11 rounded-xl overflow-hidden">
+            <Link href="/" className="flex items-center gap-1 sm:gap-2 group flex-shrink-0">
+              <div className="relative w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-lg sm:rounded-xl overflow-hidden">
                 <Image
                   src="/gym-logo.png"
                   alt="Arm Strong Gym Logo"
                   fill
-                  className="object-contain group-hover:scale-105 transition-transform rounded-xl"
+                  className="object-contain group-hover:scale-105 transition-transform rounded-lg sm:rounded-xl"
                   priority
                 />
               </div>
 
-              <span className="text-lg md:text-2xl font-bold text-foreground whitespace-nowrap">
+              <span className="text-base sm:text-lg md:text-2xl font-bold text-foreground whitespace-nowrap">
                 Arm <span className="text-primary">Strong</span>
               </span>
             </Link>
 
             {/* DESKTOP NAV */}
-            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+            <div className="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -79,11 +79,11 @@ export function Navigation() {
             </div>
 
             {/* DESKTOP CTA */}
-            <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+            <div className="hidden lg:flex items-center gap-2 xl:gap-3 flex-shrink-0">
               <Button
                 variant="outline"
                 size="sm"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent text-xs xl:text-sm"
                 onClick={() => setShowLoginModal(true)}
               >
                 Login
@@ -91,7 +91,7 @@ export function Navigation() {
 
               <Button
                 size="sm"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground text-xs xl:text-sm"
                 onClick={() => setShowJoinModal(true)}
               >
                 Join Now
@@ -102,13 +102,13 @@ export function Navigation() {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden text-foreground"
+              className="lg:hidden text-foreground w-10 h-10 sm:w-12 sm:h-12"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
-                <X className="w-5 h-5 md:w-6 md:h-6" />
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
               ) : (
-                <Menu className="w-5 h-5 md:w-6 md:h-6" />
+                <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
               )}
             </Button>
           </div>
@@ -121,24 +121,24 @@ export function Navigation() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-background/95 backdrop-blur-md border-t border-border"
+              className="lg:hidden bg-background/95 backdrop-blur-md border-t border-border overflow-hidden"
             >
-              <div className="container mx-auto px-4 py-4 flex flex-col gap-3">
+              <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex flex-col gap-2 sm:gap-3">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-foreground/80 hover:text-primary transition-colors font-medium py-2 px-2 rounded-lg hover:bg-primary/5"
+                    className="text-foreground/80 hover:text-primary transition-colors font-medium py-2 px-2 rounded-lg hover:bg-primary/5 text-sm sm:text-base"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
                   </Link>
                 ))}
 
-                <div className="flex flex-col gap-2 mt-2 pt-3 border-t border-border">
+                <div className="flex flex-col gap-2 mt-2 sm:mt-3 pt-3 border-t border-border">
                   <Button
                     variant="outline"
-                    className="w-full border-primary text-primary bg-transparent"
+                    className="w-full border-primary text-primary bg-transparent text-sm sm:text-base py-2 sm:py-3"
                     onClick={() => {
                       setShowLoginModal(true)
                       setIsMobileMenuOpen(false)
@@ -148,7 +148,7 @@ export function Navigation() {
                   </Button>
 
                   <Button
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base py-2 sm:py-3"
                     onClick={() => {
                       setShowJoinModal(true)
                       setIsMobileMenuOpen(false)

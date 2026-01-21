@@ -44,13 +44,13 @@ export function Loader() {
           transition={{ type: "spring", stiffness: 220, damping: 18 }}
           className="relative z-10"
         >
-          <div className="bg-gradient-to-br from-primary to-primary/80 w-32 h-32 flex items-center justify-center rounded-2xl shadow-2xl">
-            <div className="relative w-20 h-20 animate-pulse rounded-xl overflow-hidden">
+          <div className="bg-gradient-to-br from-primary to-primary/80 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex items-center justify-center rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl">
+            <div className="relative w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 animate-pulse rounded-lg sm:rounded-xl overflow-hidden">
               <Image
                 src="/gym-logo.png"
                 alt="Arm Strong Gym Logo"
                 fill
-                className="object-contain rounded-xl"
+                className="object-contain rounded-lg sm:rounded-xl"
                 priority
               />
             </div>
@@ -62,12 +62,12 @@ export function Loader() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="mt-6 text-center"
+          className="mt-4 sm:mt-6 text-center"
         >
-          <h2 className="text-2xl md:text-3xl font-bold">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
             Arm <span className="text-primary">Strong</span>
           </h2>
-          <p className="text-muted-foreground mt-2">
+          <p className="text-muted-foreground text-sm sm:text-base mt-1 sm:mt-2">
             Loading your fitness journey...
           </p>
         </motion.div>

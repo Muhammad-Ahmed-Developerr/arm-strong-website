@@ -59,21 +59,21 @@ export function TestimonialsSection() {
   }
 
   return (
-    <section id="testimonials" ref={ref} className="py-20 md:py-32 bg-background relative overflow-hidden">
+    <section id="testimonials" ref={ref} className="py-12 sm:py-16 md:py-20 lg:py-32 bg-background relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
             Success <span className="text-primary">Stories</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-balance px-2 sm:px-0">
             Real results from real people. See how Arm Strong has transformed lives.
           </p>
         </motion.div>
@@ -88,28 +88,28 @@ export function TestimonialsSection() {
             transition={{ duration: 0.5 }}
           >
             <Card className="border-2 border-border hover:border-primary transition-all duration-300">
-              <CardContent className="p-8 md:p-12">
-                <Quote className="w-12 h-12 text-primary/20 mb-6" />
+              <CardContent className="p-4 sm:p-6 md:p-8 lg:p-12">
+                <Quote className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-primary/20 mb-4 sm:mb-6" />
 
-                <div className="flex mb-4">
+                <div className="flex mb-3 sm:mb-4">
                   {Array.from({ length: testimonials[currentIndex].rating }).map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-accent text-accent" />
                   ))}
                 </div>
 
-                <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground mb-6 sm:mb-8 leading-relaxed">
                   "{testimonials[currentIndex].text}"
                 </p>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 sm:gap-4">
                   <img
                     src={testimonials[currentIndex].image || "/placeholder.svg"}
                     alt={testimonials[currentIndex].name}
-                    className="w-16 h-16 rounded-full object-cover border-2 border-primary"
+                    className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full object-cover border-2 border-primary"
                   />
                   <div>
-                    <div className="font-bold text-lg">{testimonials[currentIndex].name}</div>
-                    <div className="text-primary">{testimonials[currentIndex].role}</div>
+                    <div className="font-bold text-base sm:text-lg md:text-xl">{testimonials[currentIndex].name}</div>
+                    <div className="text-primary text-sm sm:text-base">{testimonials[currentIndex].role}</div>
                   </div>
                 </div>
               </CardContent>
@@ -121,27 +121,27 @@ export function TestimonialsSection() {
             size="icon"
             variant="outline"
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 w-12 h-12 rounded-full bg-background border-2 border-primary hover:bg-primary hover:text-primary-foreground"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-3 md:-translate-x-6 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-background border-2 border-primary hover:bg-primary hover:text-primary-foreground"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </Button>
           <Button
             size="icon"
             variant="outline"
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 w-12 h-12 rounded-full bg-background border-2 border-primary hover:bg-primary hover:text-primary-foreground"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-3 md:translate-x-6 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-background border-2 border-primary hover:bg-primary hover:text-primary-foreground"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
           </Button>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  currentIndex === index ? "bg-primary w-8" : "bg-muted-foreground/30"
+                className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${
+                  currentIndex === index ? "bg-primary w-6 sm:w-8" : "bg-muted-foreground/30"
                 }`}
               />
             ))}

@@ -78,23 +78,23 @@ export function BlogSection() {
 
   return (
     <>
-      <section id="blog" ref={ref} className="py-20 md:py-32 bg-background">
-        <div className="container mx-auto px-4">
+      <section id="blog" ref={ref} className="py-12 sm:py-16 md:py-20 lg:py-32 bg-background">
+        <div className="container mx-auto px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
               Fitness <span className="text-primary">Tips & Articles</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-balance px-2 sm:px-0">
               Expert advice, workout tips, and nutrition guides to help you succeed.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {articles.map((article, index) => (
               <motion.div
                 key={index}
@@ -102,39 +102,39 @@ export function BlogSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="h-full group hover:border-primary transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 overflow-hidden flex flex-col">
-                  <div className="relative h-56 overflow-hidden">
+                <Card className="h-full group hover:border-primary transition-all duration-300 hover:shadow-lg sm:hover:shadow-xl hover:shadow-primary/20 overflow-hidden flex flex-col">
+                  <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
                     <img
                       src={`${article.image}?query=${encodeURIComponent(article.category + " fitness")}`}
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                      <span className="bg-primary text-primary-foreground px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
                         {article.category}
                       </span>
                     </div>
                   </div>
-                  <CardHeader>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                      <Calendar className="w-4 h-4" />
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3">
+                      <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                       {article.date}
                     </div>
-                    <h3 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors">
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold leading-tight group-hover:text-primary transition-colors">
                       {article.title}
                     </h3>
                   </CardHeader>
-                  <CardContent className="flex-1">
-                    <p className="text-muted-foreground">{article.excerpt}</p>
+                  <CardContent className="flex-1 p-4 sm:p-6 pt-0">
+                    <p className="text-sm sm:text-base text-muted-foreground">{article.excerpt}</p>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="p-4 sm:p-6 pt-0">
                     <Button
                       variant="ghost"
-                      className="w-full group/btn text-primary hover:bg-primary hover:text-primary-foreground"
+                      className="w-full group/btn text-primary hover:bg-primary hover:text-primary-foreground text-sm sm:text-base"
                       onClick={() => handleReadMore(article)}
                     >
                       Read More
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </Button>
                   </CardFooter>
                 </Card>
@@ -142,11 +142,11 @@ export function BlogSection() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-10 md:mt-12">
             <Button
               size="lg"
               variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4"
             >
               View All Articles
             </Button>
@@ -155,29 +155,29 @@ export function BlogSection() {
       </section>
 
       <Dialog open={showArticleModal} onOpenChange={setShowArticleModal}>
-        <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="sm:max-w-lg md:max-w-2xl max-h-[80vh] sm:max-h-[90vh] overflow-y-auto">
           {selectedArticle && (
             <>
               <DialogHeader>
-                <div className="mb-4">
-                  <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                <div className="mb-3 sm:mb-4">
+                  <span className="bg-primary text-primary-foreground px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
                     {selectedArticle.category}
                   </span>
                 </div>
-                <DialogTitle className="text-3xl mb-2">{selectedArticle.title}</DialogTitle>
-                <DialogDescription className="flex items-center gap-2 text-base">
-                  <Calendar className="w-4 h-4" />
+                <DialogTitle className="text-xl sm:text-2xl md:text-3xl mb-1 sm:mb-2">{selectedArticle.title}</DialogTitle>
+                <DialogDescription className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base">
+                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                   {selectedArticle.date}
                 </DialogDescription>
               </DialogHeader>
-              <div className="mt-4">
+              <div className="mt-3 sm:mt-4">
                 <img
                   src={`${selectedArticle.image}?query=${encodeURIComponent(selectedArticle.category + " fitness")}`}
                   alt={selectedArticle.title}
-                  className="w-full h-64 object-cover rounded-lg mb-6"
+                  className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg mb-4 sm:mb-6"
                 />
-                <p className="text-lg leading-relaxed mb-6">{selectedArticle.content}</p>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6">{selectedArticle.content}</p>
+                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                   For personalized guidance on implementing these strategies, book a consultation with one of our expert
                   trainers. We're here to help you achieve your fitness goals!
                 </p>

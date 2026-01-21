@@ -1,5 +1,4 @@
-// app/page.tsx
-"use client"  // isse ye page client component ban jayega
+"use client"  
 
 import { useState, useEffect } from "react"
 import { Loader } from "@/components/loader"

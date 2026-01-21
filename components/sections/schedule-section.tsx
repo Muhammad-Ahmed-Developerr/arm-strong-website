@@ -83,34 +83,34 @@ export function ScheduleSection() {
 
   return (
     <>
-      <section id="schedule" ref={ref} className="py-20 md:py-32 bg-background">
-        <div className="container mx-auto px-4">
+      <section id="schedule" ref={ref} className="py-12 sm:py-16 md:py-20 lg:py-32 bg-background">
+        <div className="container mx-auto px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
               Class <span className="text-primary">Schedule</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-balance px-2 sm:px-0">
               Find the perfect class for your schedule and fitness goals.
             </p>
           </motion.div>
 
           {/* Day Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 md:mb-12 px-2 sm:px-0">
             {days.map((day) => (
               <Button
                 key={day}
                 onClick={() => setActiveDay(day)}
                 variant={activeDay === day ? "default" : "outline"}
-                className={`${
+                className={`text-xs sm:text-sm ${
                   activeDay === day ? "bg-primary text-primary-foreground" : "border-border hover:border-primary"
-                }`}
+                } px-3 sm:px-4 py-1.5 sm:py-2`}
               >
-                {day}
+                {day.substring(0, 3)}
               </Button>
             ))}
           </div>
@@ -121,30 +121,30 @@ export function ScheduleSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto"
           >
             {schedule[activeDay as keyof typeof schedule].map((item, index) => (
               <Card
                 key={index}
                 className="hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
               >
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-4 gap-2">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-start justify-between mb-3 sm:mb-4 gap-2">
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-xl font-bold mb-2 break-words">{item.class}</h3>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <User className="w-4 h-4 shrink-0" />
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 break-words">{item.class}</h3>
+                      <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
+                        <User className="w-3 h-3 sm:w-4 sm:h-4 shrink-0" />
                         <span className="truncate">{item.trainer}</span>
                       </div>
                     </div>
-                    <div className="text-primary font-bold text-lg shrink-0">{item.time}</div>
+                    <div className="text-primary font-bold text-sm sm:text-base md:text-lg shrink-0">{item.time}</div>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                    <Clock className="w-4 h-4" />
+                  <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
+                    <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                     {item.duration}
                   </div>
                   <Button
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base py-2 sm:py-3"
                     onClick={() => handleBookSpot(item.class, item.time, item.trainer)}
                   >
                     Book Your Spot

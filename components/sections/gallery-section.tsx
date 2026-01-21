@@ -52,30 +52,30 @@ export function GallerySection() {
   ]
 
   return (
-    <section id="gallery" ref={ref} className="py-20 md:py-32 bg-card">
-      <div className="container mx-auto px-4">
+    <section id="gallery" ref={ref} className="py-12 sm:py-16 md:py-20 lg:py-32 bg-card">
+      <div className="container mx-auto px-3 sm:px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
             Our <span className="text-primary">Gallery</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-balance px-2 sm:px-0">
             Take a tour of our facilities and see our community in action.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           {galleryItems.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative aspect-[4/3] overflow-hidden rounded-xl group cursor-pointer"
+              className="relative aspect-[4/3] overflow-hidden rounded-lg sm:rounded-xl group cursor-pointer"
               onClick={() => setSelectedImage(item.src)}
             >
               <img
@@ -84,8 +84,8 @@ export function GallerySection() {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <h3 className="text-xl font-bold text-foreground">{item.alt}</h3>
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-foreground">{item.alt}</h3>
               </div>
             </motion.div>
           ))}
@@ -94,15 +94,19 @@ export function GallerySection() {
 
       {/* Lightbox Modal */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-5xl p-0 bg-transparent border-none">
+        <DialogContent className="max-w-[95vw] sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl p-0 bg-transparent border-none">
           <button
             onClick={() => setSelectedImage(null)}
-            className="absolute -top-12 right-0 text-white hover:text-primary transition-colors"
+            className="absolute -top-10 sm:-top-12 right-0 sm:right-2 text-white hover:text-primary transition-colors"
           >
-            <X className="w-8 h-8" />
+            <X className="w-6 h-6 sm:w-8 sm:h-8" />
           </button>
           {selectedImage && (
-            <img src={selectedImage || "/placeholder.svg"} alt="Gallery item" className="w-full h-auto rounded-xl" />
+            <img 
+              src={selectedImage || "/placeholder.svg"} 
+              alt="Gallery item" 
+              className="w-full h-auto max-h-[70vh] sm:max-h-[80vh] object-contain rounded-lg sm:rounded-xl" 
+            />
           )}
         </DialogContent>
       </Dialog>

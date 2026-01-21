@@ -19,32 +19,32 @@ export function ServiceModal({ isOpen, onClose, service, onBookSession }: Servic
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-2xl w-[95vw] max-h-[85vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-3xl">{service.title}</DialogTitle>
-          <DialogDescription className="text-base">{service.description}</DialogDescription>
+          <DialogTitle className="text-xl sm:text-2xl md:text-3xl">{service.title}</DialogTitle>
+          <DialogDescription className="text-sm sm:text-base md:text-lg">{service.description}</DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6 mt-4">
+        <div className="space-y-4 sm:space-y-6 mt-3 sm:mt-4">
           <div>
-            <h4 className="font-bold text-lg mb-3">What's Included:</h4>
-            <ul className="space-y-2">
+            <h4 className="font-bold text-base sm:text-lg md:text-xl mb-2 sm:mb-3">What's Included:</h4>
+            <ul className="space-y-1.5 sm:space-y-2">
               {service.features.map((feature, index) => (
-                <li key={index} className="flex items-start gap-3">
+                <li key={index} className="flex items-start gap-2 sm:gap-3">
                   <div className="bg-primary/10 p-1 rounded-full mt-0.5">
-                    <svg className="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span>{feature}</span>
+                  <span className="text-sm sm:text-base">{feature}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="bg-card border border-border rounded-lg p-6">
-            <h4 className="font-bold text-lg mb-2">Ready to Get Started?</h4>
-            <p className="text-muted-foreground mb-4">
+          <div className="bg-card border border-border rounded-lg p-4 sm:p-6">
+            <h4 className="font-bold text-base sm:text-lg md:text-xl mb-1.5 sm:mb-2">Ready to Get Started?</h4>
+            <p className="text-muted-foreground text-sm sm:text-base mb-3 sm:mb-4">
               Book a session with our expert trainers and begin your fitness transformation today.
             </p>
             <Button
@@ -52,8 +52,7 @@ export function ServiceModal({ isOpen, onClose, service, onBookSession }: Servic
                 onClose()
                 onBookSession()
               }}
-              className="w-full bg-primary hover:bg-primary/90"
-              size="lg"
+              className="w-full bg-primary hover:bg-primary/90 text-sm sm:text-base py-3 sm:py-4"
             >
               Book a Session
             </Button>

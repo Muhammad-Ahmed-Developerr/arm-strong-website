@@ -104,23 +104,23 @@ export function ServicesSection() {
 
   return (
     <>
-      <section id="services" ref={ref} className="py-20 md:py-32 bg-background">
-        <div className="container mx-auto px-4">
+      <section id="services" ref={ref} className="py-12 sm:py-16 md:py-20 lg:py-32 bg-background">
+        <div className="container mx-auto px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
               Our <span className="text-primary">Services</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto text-balance px-2 sm:px-0">
               Comprehensive fitness solutions designed to help you reach your goals, whatever they may be.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -128,28 +128,28 @@ export function ServicesSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="h-full group hover:border-primary transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 overflow-hidden">
-                  <div className="relative h-48 overflow-hidden">
+                <Card className="h-full group hover:border-primary transition-all duration-300 hover:shadow-lg sm:hover:shadow-xl hover:shadow-primary/20 overflow-hidden">
+                  <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
                     <img
                       src={`${service.image}?query=${encodeURIComponent(service.title + " fitness")}`}
                       alt={service.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                    <div className="absolute bottom-4 left-4 bg-primary p-3 rounded-lg">
-                      <service.icon className="w-6 h-6 text-primary-foreground" />
+                    <div className="absolute bottom-4 left-4 bg-primary p-2 sm:p-3 rounded-lg">
+                      <service.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-primary-foreground" />
                     </div>
                   </div>
-                  <CardHeader>
-                    <CardTitle className="text-2xl">{service.title}</CardTitle>
+                  <CardHeader className="p-4 sm:p-6">
+                    <CardTitle className="text-lg sm:text-xl md:text-2xl">{service.title}</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">{service.description}</CardDescription>
+                  <CardContent className="p-4 sm:p-6 pt-0">
+                    <CardDescription className="text-sm sm:text-base">{service.description}</CardDescription>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="p-4 sm:p-6 pt-0">
                     <Button
                       variant="ghost"
-                      className="w-full text-primary hover:bg-primary hover:text-primary-foreground"
+                      className="w-full text-primary hover:bg-primary hover:text-primary-foreground text-sm sm:text-base"
                       onClick={() => handleLearnMore(service)}
                     >
                       Learn More
